@@ -4,15 +4,15 @@ import itertools
 
 _end = '$'
 
-root = dict() ## empty dict 
+root = dict() ## empty dict
 
-words = [ 'ATAGA','ATC','GAT' ] 
+words = [ 'ATAGA','ATC','GAT' ]
 
 for word in words:
-		print ('\n\n'+word) ## one word in array 
+		print ('\n\n'+word) ## one word in array
 		current_dict = root ## dict is pass by "reference"
 		for letter in word:
-				print (letter)
+				print ('\n'+letter)
 				print ('@current_dict before call setdefault')
 				print (current_dict)
 				current_dict = current_dict.setdefault(letter, {})
@@ -26,10 +26,10 @@ for word in words:
 		current_dict.setdefault(_end, _end)
 		print ('end word')
 		print (root)
-		
+
 
 ## let's see root
-root 
+root
 
 
 def print_trie(parent, node, result, _end = '$'):
@@ -39,12 +39,12 @@ def print_trie(parent, node, result, _end = '$'):
             continue
         nodeid += 1
         result.append(str(parent) + '->' + str(nodeid) + ':' + key)
-        nodeid = print_trie(nodeid, node[key], result) ## recursive ... can probably make it easier to read. 
+        nodeid = print_trie(nodeid, node[key], result) ## recursive ... can probably make it easier to read.
     return nodeid
-	
-	
+
+
 result = []
-print_trie(0, root, result) 
+print_trie(0, root, result)
 result
 
 
