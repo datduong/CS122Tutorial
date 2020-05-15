@@ -35,6 +35,7 @@ def APM(pattern, d, Text, B):
     s, i = f
     rest = pattern[:i] + pattern[i+len(s):] ## get the rest of pattern (note fragment came from pattern)... may be we can speed this up...
     for p in B.lookup(s): ##! use BWT to look where this small fragment of pattern match. note that B.lookup is just doing FM indexing, change it into your own function
+      ##! note: @p should be an interger saying where the match is found, can match at many places
       target = Text[p-i:p] + Text[p+len(s):p-i+l] ## get the text that match.
       if HammingDistance(rest, target) <= d: ## keep results if we have only "a few" errors.
         result.add(p-i)
