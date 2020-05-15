@@ -21,7 +21,7 @@ def divide(dna, d):
   return result
 
 
-def HammingDistance(s1, s2):
+def HammingDistance(s1, s2): ##! can use anything else, but Hamming is very fast and easy
   if len(s1) != len(s2): return float('inf')
   return sum(1 if s1[i] != s2[i] else 0 for i in range(len(s1)))
 
