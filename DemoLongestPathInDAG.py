@@ -1,7 +1,7 @@
 import random
 
 
-def parse_data(dataset):
+def parse_data(dataset): ##! read in the graph into some python object
   nodes = set()
   adj_list = {}
   rev_adj_list = {}
@@ -21,7 +21,7 @@ def solve(dataset):
   dataset = dataset.splitlines()
   start, end = map(int, dataset[:2])
   dataset = dataset[2:]
-  ## just read in graph. build nodes, and edges
+  ##! just read in graph. build nodes, and edges
   nodes, adj_list, _ = parse_data(dataset) 
   print('nodes')
   print (nodes)
