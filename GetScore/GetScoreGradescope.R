@@ -61,7 +61,6 @@ Q = cbind ( stepik [, 2:3], score)
 names(Q) = c( "Last.Name", "First.Name", "score" )
 # Qx = merge(Q,midterm,by=c("First.Name", "Last.Name"))
 Qx = Q 
-
 Qx = Qx [ order(Qx$score,decreasing=T), ]
 
 Qx = Qx[ ! duplicated(Qx$First.Name), ]
