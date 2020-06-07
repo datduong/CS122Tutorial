@@ -76,27 +76,35 @@ write.table(Qx,file='StepikChap3Score.csv',row.names=F,quote=F,na='none',sep='\t
 
 setwd('C:/Users/dat/Documents/CS122Spring2020Record')
 
-project = read.csv('Algorithms_Spring_2020_scores.csv')
 
-#! hp3
-# project = project [ grep ( 'hw3' , project$scores_table.genome_type ), ]
-# project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==3) , ]
-# where = c ( "scores_table.assembly_accuracy","scores_table.assembly_contig_sizes","scores_table.assembly_coverage")
+for (project_num in c(1,2,3) ) {
 
-#! hp1 
-# project = project [ grep ( 'hw1' , project$scores_table.genome_type ) , ]
-# project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==2) , ]
-# where = c ( "scores_table.snp_score")
+  project = read.csv('Algorithms_Spring_2020_scores.csv')
 
-#! hp2
-project = project [ grep ( 'hw2' , project$scores_table.genome_type ) , ]
-project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==2) , ]
-where = c ( "scores_table.snp_score","scores_table.indel_score")
+  if (project_num == 3){
+  #! hp3
+    project = project [ grep ( 'hw3' , project$scores_table.genome_type ), ]
+    project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==3) , ]
+    where = c ( "scores_table.assembly_accuracy","scores_table.assembly_contig_sizes","scores_table.assembly_coverage")
+  }
 
+  if (project_num == 1){
+  #! hp1 
+    project = project [ grep ( 'hw1' , project$scores_table.genome_type ) , ]
+    project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==2) , ]
+    where = c ( "scores_table.snp_score")
+  }
 
-#! 
-project = cbind ( project [ , 1:2], project[where] ) 
-names (project) = c ('auth_user.id','auth_user.studentId',where)
-write.table(project,'HP3.csv',row.names=F,quote=F,sep='\t')
+  if (project_num ==2) {
+  #! hp2
+    project = project [ grep ( 'hw2' , project$scores_table.genome_type ) , ]
+    project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==2) , ]
+    where = c ( "scores_table.snp_score","scores_table.indel_score")
+  }
 
+  #! 
+  project = cbind ( project [ , 1:2], project[where] ) 
+  names (project) = c ('auth_user.id','auth_user.studentId',where)
+  write.table(project,paste0('HP',project_num,'.csv'),row.names=F,quote=F,sep='\t')
 
+}
