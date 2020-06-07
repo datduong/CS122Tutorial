@@ -78,10 +78,10 @@ setwd('C:/Users/dat/Documents/CS122Spring2020Record')
 
 project = read.csv('Algorithms_Spring_2020_scores.csv')
 
-# #! hp3
-project = project [ grep ( 'hw3' , project$scores_table.genome_type ), ]
-project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==3) , ]
-where = c ( "scores_table.assembly_accuracy","scores_table.assembly_contig_sizes","scores_table.assembly_coverage")
+#! hp3
+# project = project [ grep ( 'hw3' , project$scores_table.genome_type ), ]
+# project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==3) , ]
+# where = c ( "scores_table.assembly_accuracy","scores_table.assembly_contig_sizes","scores_table.assembly_coverage")
 
 #! hp1 
 # project = project [ grep ( 'hw1' , project$scores_table.genome_type ) , ]
@@ -89,9 +89,9 @@ where = c ( "scores_table.assembly_accuracy","scores_table.assembly_contig_sizes
 # where = c ( "scores_table.snp_score")
 
 #! hp2
-# project = project [ grep ( 'hw2' , project$scores_table.genome_type ) , ]
-# project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==2) , ]
-# where = c ( "scores_table.snp_score","scores_table.indel_score")
+project = project [ grep ( 'hw2' , project$scores_table.genome_type ) , ]
+project = project [ which (project$scores_table.chromosome_id==1 & project$scores_table.genome_id==2) , ]
+where = c ( "scores_table.snp_score","scores_table.indel_score")
 
 
 #! 
